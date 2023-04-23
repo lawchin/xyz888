@@ -1,2 +1,5 @@
 flet==0.5.2
 Pyrebase4==4.6.0
+Pillow==9.5.0
+pyinstaller==5.10.1
+
