@@ -24,11 +24,17 @@
   <title>Flet</title>
   <link rel="manifest" href="manifest.json">
 
-  <script>window.flutterWebRenderer="canvaskit";</script>
+  <script>
+    var webRenderer = "auto";
+    var useColorEmoji = false;
+  </script>
+
+  <script>webRenderer="canvaskit";</script>
+  <script>useColorEmoji=false;</script>
 
   
         <script>
-            var micropipIncludePre = true;
+            var micropipIncludePre = false;
             var pythonModuleName = "main";
         </script>
         <script src="python.js"></script>
@@ -36,7 +42,7 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '209361375';
+    var serviceWorkerVersion = "2289608434";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
@@ -109,7 +115,10 @@
         }
       }).then(function (engineInitializer) {
         loading.classList.add('main_done');
-        return engineInitializer.initializeEngine();
+        return engineInitializer.initializeEngine({
+          renderer: webRenderer,
+          useColorEmoji: useColorEmoji,
+        });
       }).then(function (appRunner) {
         loading.classList.add('init_done');
         return appRunner.runApp();
